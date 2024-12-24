@@ -27,3 +27,9 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+Route::get('/register', function () {
+    return view('auth.register');
+})->name('register.form');
+
+Route::post('/register', [App\Http\Controllers\Auth\RegisterController::class, 'register'])->name('register');
