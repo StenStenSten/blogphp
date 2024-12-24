@@ -9,8 +9,14 @@
 </head>
 <body>
     <h1>{{ $post->title }}</h1>
-    <p>{{ $post->content }}</p>
+    <p><strong>Content:</strong> {{ $post->content }}</p>
+    
+    <!-- Display other columns if they exist -->
+    <p><strong>Post ID:</strong> {{ $post->id }}</p>
+    <p><strong>Created At:</strong> {{ $post->created_at }}</p>
+    <p><strong>Updated At:</strong> {{ $post->updated_at }}</p>
 
     <a href="{{ url('/') }}">Back to all posts</a>
 </body>
 </html>
+
