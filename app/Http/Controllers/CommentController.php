@@ -22,6 +22,6 @@ class CommentController extends Controller
             'author' => $request->input('author'),
         ]);
 
-        return redirect()->route('post.show', $postId)->with('success', 'Comment added successfully!');
+        return redirect()->route('posts.show', $postId)->with('success', 'Comment added successfully!');
     }
 }

@@ -1,8 +1,3 @@
-@if (empty($posts) || $posts->isEmpty())
-    <p>No posts found.</p>
-@else
-    <p>Posts are available.</p>
-@endif
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
@@ -16,6 +11,13 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <h1 class="text-2xl font-bold mb-6">Posts</h1>
 
+                    <!-- Check if there are any posts -->
+                    @if ($posts->isEmpty())
+                        <p>No posts found.</p>
+                    @else
+                        <p>Posts are available.</p>
+                    @endif
+
                     <!-- Posts Grid -->
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                         @foreach($posts as $post)
@@ -24,7 +26,7 @@
                                     <h2 class="card-title">{{ $post->title }}</h2>
                                     <p>{{ Str::limit($post->content, 100) }}</p>
                                     <div class="card-actions justify-end">
-                                        <a href="{{ route('post.show', $post->id) }}" class="btn btn-primary">Read More</a>
+                                        <a href="{{ route('posts.show', $post->id) }}" class="btn btn-primary">Read More</a>
                                     </div>
                                 </div>
                             </div>
