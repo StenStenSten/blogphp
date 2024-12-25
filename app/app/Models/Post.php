@@ -15,3 +15,13 @@ class Post extends Model
     // If your table doesn't have 'created_at' and 'updated_at', set this to false
     public $timestamps = true; // default is true if timestamps are present
 }
+
+class Post extends Model
+{
+    protected $fillable = ['title', 'content'];
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+}

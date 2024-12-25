@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\CommentController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -18,6 +19,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/', [PostController::class, 'index'])->name('posts.index');
 Route::get('/post/{id}', [PostController::class, 'show'])->name('post.show');
 
 Route::middleware('auth')->group(function () {
@@ -33,3 +35,5 @@ Route::get('/register', function () {
 })->name('register.form');
 
 Route::post('/register', [App\Http\Controllers\Auth\RegisterController::class, 'register'])->name('register');
+
+Route::post('/posts/{post}/comments', [CommentController::class, 'store'])->name('comments.store');

@@ -7,12 +7,18 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+    public function index()
+    {
+        // Fetch posts with pagination
+        $posts = Post::latest()->paginate(9);
+
+        return view('posts.index', compact('posts'));
+    }
+
     public function show($id)
     {
-        // Retrieve the post by ID, or 404 if not found
         $post = Post::findOrFail($id);
 
-        // Return the view with the post data
-        return view('post.show', compact('post'));
+        return view('posts.show', compact('post'));
     }
 }
