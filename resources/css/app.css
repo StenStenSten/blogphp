@@ -1,3 +1,112 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f3f4f6;
+    margin: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #374151;
+}
+
+.navbar .btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #3b82f6;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.navbar .btn:hover {
+    background-color: #2563eb;
+}
+
+.p-6 {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.p-6 h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #111827;
+}
+
+.p-6 p {
+    font-size: 16px;
+    color: #4b5563;
+}
+
+.p-6 .btn {
+    align-self: flex-start;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #10b981;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.p-6 .btn:hover {
+    background-color: #059669;
+}
+
+.mt-8 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.mt-8 a {
+    padding: 10px 15px;
+    background-color: #e5e7eb;
+    border: 1px solid #d1d5db;
+    border-radius: 5px;
+    color: #374151;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.mt-8 a:hover {
+    background-color: #d1d5db;
+}

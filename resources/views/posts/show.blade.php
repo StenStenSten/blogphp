@@ -1,5 +1,3 @@
-<!-- resources/views/post/show.blade.php -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +13,14 @@
             <a class="btn btn-ghost normal-case text-xl" href="/">StenBlog</a>
         </div>
         <div class="flex-none">
-            <a href="{{ route('login') }}" class="btn btn-primary">Login</a>
+            @if(auth()->check())
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button type="submit" class="btn btn-secondary">Logout</button>
+                </form>
+            @else
+                <a href="{{ route('login') }}" class="btn btn-primary">Login</a>
+            @endif
         </div>
     </nav>
 
@@ -24,7 +29,6 @@
         <h1 class="text-2xl font-bold mb-4">{{ $post->title }}</h1>
         <p class="mb-4">{{ $post->content }}</p>
         
-        <!-- Display other columns if they exist -->
         <p class="mb-2"><strong>Post ID:</strong> {{ $post->id }}</p>
         <p class="mb-2"><strong>Created At:</strong> {{ $post->created_at }}</p>
         <p class="mb-4"><strong>Updated At:</strong> {{ $post->updated_at }}</p>
